@@ -1,0 +1,36 @@
+@import '../../styles/variables';
+
+.InputFile {
+  grid-area: input-file;
+
+  &__Label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid rgba(51, 51, 51, 0.2);
+    padding: 15px 24px 15px 60px;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 14px;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+
+    background: url('../../assets/images/folder.png') no-repeat;
+    background-position: left 24px center;
+  }
+
+  &__Button {
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    nav-index: -1;
+  }
+
+  &__FilesAttached {
+    font-size: 14px;
+    color: #a7a7a7;
+  }
+}

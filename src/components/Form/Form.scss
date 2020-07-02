@@ -1,0 +1,57 @@
+@import '../../styles/variables';
+
+.Form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  grid-template-areas:
+    'company-name company-name number-of-people'
+    'company-area company-area company-area'
+    'description description description'
+    'input-file input-file input-file'
+    'submit . .';
+  padding: 55px;
+  margin-bottom: 20px;
+  border-radius: $border-radius;
+  background-color: #ffffff;
+
+  @media screen and (max-width: 680px) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'company-name'
+      'number-of-people'
+      'company-area'
+      'description'
+      'input-file'
+      'submit';
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 30px;
+  }
+
+  &__Sumbit {
+    grid-area: submit;
+    padding: 16px 0;
+    font-size: 700;
+    font-size: 16px;
+    line-height: 22px;
+    border-radius: $border-radius;
+    border-color: transparent;
+    background-color: $primary-color;
+    color: white;
+    transition: background-color $transition-duration,
+      box-shadow $transition-duration;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(darken($primary-color, 10%), 0.5);
+    }
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}

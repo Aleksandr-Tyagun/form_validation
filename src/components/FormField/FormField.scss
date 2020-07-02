@@ -1,0 +1,93 @@
+@import '../../styles/variables';
+
+.FormField {
+  position: relative;
+
+  &__Label {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 100%;
+  }
+
+  &__Required {
+    margin-left: 3px;
+    color: $alert-color;
+  }
+
+  &__Input {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 16px;
+    height: 48px;
+    border: 1px solid transparent;
+    border-radius: $border-radius;
+    background-color: $input-background-color;
+    box-sizing: border-box;
+    width: 100%;
+    transition: box-shadow $transition-duration;
+    outline: none;
+    box-shadow: none;
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($outline-color, 0.5);
+    }
+
+    &::placeholder {
+      color: $placeholder-text-color;
+    }
+
+    &--TextArea {
+      height: 160px;
+      padding: 16px;
+    }
+
+    &--Error {
+      border-color: $alert-color;
+      box-shadow: 0;
+      transition: box-shadow $transition-duration;
+      outline: none;
+      box-shadow: none;
+
+      &:focus {
+        box-shadow: 0 0 0 3px rgba($alert-color, 0.5);
+      }
+    }
+  }
+
+  &__ErrorMessage {
+    position: absolute;
+    height: 32px;
+    bottom: -36px;
+    left: 0;
+    right: 0;
+    color: $alert-color;
+    font-size: 12px;
+    line-height: 16px;
+    animation: error-appear $transition-duration;
+  }
+
+  &--CompanyName {
+    grid-area: company-name;
+  }
+
+  &--NumberOfPeople {
+    grid-area: number-of-people;
+  }
+
+  &--CompanyArea {
+    grid-area: company-area;
+  }
+
+  &--Description {
+    grid-area: description;
+  }
+}
+
+@keyframes error-appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

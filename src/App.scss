@@ -1,0 +1,32 @@
+.App {
+  max-width: 600px;
+  margin: 0 auto;
+  width: calc(100% - 40px);
+
+  @media screen and (max-width: 360px) {
+    width: calc(100% - 20px);
+  }
+
+  &__Title {
+    padding-top: 20px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 64px;
+    color: white;
+
+    @media screen and (max-width: 680px) {
+      font-size: 34px;
+    }
+
+    @media screen and (max-width: 480px) {
+      font-size: 28px;
+    }
+  }
+
+  &__Progress {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+  }
+}
