@@ -13,13 +13,22 @@
     box-sizing: border-box;
     width: 100%;
     font-size: 14px;
+    line-height: 16px;
     text-align: left;
     cursor: pointer;
     outline: none;
     box-shadow: none;
-
     background: url('../../assets/images/folder.png') no-repeat;
     background-position: left 24px center;
+    transition: background-color $transition-duration;
+
+    &:hover {
+      background-color: $input-background-color;
+    }
+  }
+
+  &__Title {
+    padding-right: 15px;
   }
 
   &__Button {
