@@ -1,20 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './InputFile.scss';
 
 type Props = {
-  handleInputFile: (uploadedFiles: FileList) => void;
+  handleInputFile: (uploadedFiles: FileList | null) => void;
+  files: FileList | null;
 }
 
-export const InputFile: React.FC<Props> = ({ handleInputFile }) => {
-  const [files, setFiles] = useState<FileList>();
-
-  const handleInputChange = (uploadedFiles: FileList | null) => {
-    if (uploadedFiles?.length) {
-      setFiles(uploadedFiles);
-      handleInputFile(uploadedFiles);
-    }
-  }
+export const InputFile: React.FC<Props> = ({ handleInputFile, files }) => {
   return (
     <div className="InputFile">
       <label className="InputFile__Label" htmlFor="upload">
@@ -31,7 +24,7 @@ export const InputFile: React.FC<Props> = ({ handleInputFile }) => {
         type="file"
         id="upload"
         multiple
-        onChange={e => handleInputChange(e.currentTarget.files)}
+        onChange={({ target: { files }}) => files && handleInputFile(files)}
       />
     </div>
   );

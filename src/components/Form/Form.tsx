@@ -56,7 +56,7 @@ export const Form = () => {
     values: defaultValues,
     errors: emptyErrors,
   });
-  const [files, setFiles] = useState<FileList>();
+  const [files, setFiles] = useState<FileList | null>(null);
 
   const handleChange = (
     { target: { name, value } }: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -105,8 +105,8 @@ export const Form = () => {
     return '';
   }
 
-  const handleInputFile = (uploadedFiles: FileList) => {
-    if (uploadedFiles.length) {
+  const handleInputFile = (uploadedFiles: FileList | null) => {
+    if (uploadedFiles?.length) {
       setFiles(uploadedFiles)
     }
   }
@@ -138,12 +138,16 @@ export const Form = () => {
       return;
     }
 
-    console.log('Submitted data:', form.values, files)
+    console.log('Submitted data:', form.values)
+    console.log('Submitted files:', files === null ? 'No files were attached' : files)
 
     setForm({
       values: defaultValues,
       errors: emptyErrors,
     });
+
+    setFiles(null);
+
   };
 
   return (
@@ -177,7 +181,7 @@ export const Form = () => {
             />
           )
       )}
-      <InputFile handleInputFile={handleInputFile} />
+      <InputFile handleInputFile={handleInputFile} files={files} />
       <button
         className="Form__Sumbit"
         type="submit"
